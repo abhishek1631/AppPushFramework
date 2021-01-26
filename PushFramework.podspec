@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "Sample framework to support APNs Services PushFramework."
   spec.description  = "Provide the feature for Apple push notification."
   spec.homepage     = "https://github.com/abhishek1631/AppPushFramework"
-  spec.license = { :type => "MIT", :file => "LICENSE" }
+  spec.license =  "MIT"
   spec.author             = { "Abhishek Kumar" => "abkumar@awesomemotive.com" }
   spec.platform = :ios
   spec.ios.deployment_target  = '14.0'
