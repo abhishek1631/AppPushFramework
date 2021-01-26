@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "PushFramework"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "Sample framework to support APNs Services PushFramework."
   spec.description  = "Provide the feature for Apple push notification."
   spec.homepage     = "https://github.com/abhishek1631/AppPushFramework"
