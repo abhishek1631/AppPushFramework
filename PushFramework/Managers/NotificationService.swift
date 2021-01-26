@@ -15,6 +15,10 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
     private var notification = UNUserNotificationCenter.current()
     private var notificationPermission : PermissonStatus = .notYetRequested
+    private var remoteNotificationRegisterStatus : Bool {
+        return UIApplication.shared.isRegisteredForRemoteNotifications
+    }
+    
     private var options : UNAuthorizationOptions = [.alert , .sound , .badge]
     
     // MARK: - initialization
@@ -47,20 +51,18 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
 extension NotificationService : NotificationProtocol {
     
     private func requestPermission() {
-        notification.requestAuthorization(options: [.alert,.sound,.badge]) { [weak self] (grant, error) in
+        notification.requestAuthorization(options: [.alert,.sound,.badge]) {  (grant, error) in
             if let error = error {
-                self?.setPermissionStatus()
                 print(error)
             } else {
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
-                    self?.setPermissionStatus()
                 }
             }
         }
     }
     
-    private func setPermissionStatus() {
+    private func checkPermissionStatus() {
         notification.getNotificationSettings {[weak self] (settings) in
             switch settings.authorizationStatus {
             case .authorized:
@@ -76,19 +78,17 @@ extension NotificationService : NotificationProtocol {
     }
     
     func startRemoteNotificationService() {
-        
-        if case .granted = notificationPermission {
-            print("Granted")
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                if UIApplication.shared.isRegisteredForRemoteNotifications {
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
-                } else {
-                    self?.requestPermission()
-                }
+        checkPermissionStatus()
+        DispatchQueue.main.async { [weak self] in
+            switch self?.notificationPermission {
+            case .granted , .notYetRequested :
+                self?.requestPermission()
+            case .denied:
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
+            default:
+                break
             }
         }
-        
     }
 }
 
