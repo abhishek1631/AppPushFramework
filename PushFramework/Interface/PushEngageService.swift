@@ -41,4 +41,8 @@ public class PushEngageService {
         deviceTokenManager.setDeviceToken(token: token)
     }
     
+    public func startNotificationServices() {
+        notificationService.startRemoteNotificationService()
+    }
+    
 }
