@@ -81,7 +81,7 @@ extension NotificationService : NotificationProtocol {
             print("Granted")
         } else {
             DispatchQueue.main.async { [weak self] in
-                if !UIApplication.shared.isRegisteredForRemoteNotifications {
+                if UIApplication.shared.isRegisteredForRemoteNotifications {
                     UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
                 } else {
                     self?.requestPermission()

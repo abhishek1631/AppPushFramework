@@ -15,7 +15,7 @@ public enum PermissionToStartNotification : CaseIterable {
 
 public class PushEngageService {
     
-    public let shared = PushEngageService()
+    public static let shared = PushEngageService()
     
     private let notificationService : NotificationProtocol
     private let deviceTokenManager : DeviceTokenProtocol
