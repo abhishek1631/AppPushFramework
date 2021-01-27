@@ -81,10 +81,12 @@ extension NotificationService : NotificationProtocol {
         checkPermissionStatus()
         DispatchQueue.main.async { [weak self] in
             switch self?.notificationPermission {
-            case .granted , .notYetRequested :
+            case .notYetRequested :
                 self?.requestPermission()
             case .denied:
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
+            case .granted:
+                print("Authoried")
             default:
                 break
             }
