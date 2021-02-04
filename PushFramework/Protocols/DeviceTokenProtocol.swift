@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol DeviceTokenProtocol {
+@objc protocol DeviceTokenProtocol {
     func getDeviceToken() -> String?
     func setDeviceToken(token : String)
 }

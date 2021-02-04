@@ -8,41 +8,34 @@
 import Foundation
 import SwiftKeychainWrapper
 
-public enum PermissionToStartNotification : CaseIterable {
-    case allow
-    case denied
-}
-
-public class PushEngageService {
+@objc public class PushEngageService : NSObject {
     
-    public static let shared = PushEngageService()
+    // MARK: - public static variable
+    
+    @objc public static let shared = PushEngageService()
+    
+    
+    //MARK: - private variable
     
     private let notificationService : NotificationProtocol
     private let deviceTokenManager : DeviceTokenProtocol
+    private let applicationManager : ApplicationProtocol
     
-    private init() {
+    //MARK: -private initialization method
+    
+    private override init() {
         self.notificationService = NotificationService()
         self.deviceTokenManager = DeviceTokenManager()
-    }
-   
-    public func getUser(permission : PermissionToStartNotification) {
-        switch permission {
-        case .allow:
-            notificationService.startRemoteNotificationService()
-        case .denied:
-            print("denied")
-        }
+        self.applicationManager = ApplicationService()
     }
     
-    public func getDeviceToken(token : Data) {
-        let token = token
-            .map{String(format: "%02.2hhx", $0)}
-            .joined()
-        deviceTokenManager.setDeviceToken(token: token)
+    //MARK: - public methods
+    
+    @objc public func setDelegate(for application : UIApplication) {
+        applicationManager.setDelegate(for: application)
     }
     
-    public func startNotificationServices() {
+    @objc public func startNotificationServices() {
         notificationService.startRemoteNotificationService()
     }
-    
 }

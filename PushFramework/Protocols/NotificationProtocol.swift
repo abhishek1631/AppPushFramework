@@ -14,6 +14,6 @@ enum PermissonStatus {
     case notYetRequested
 }
 
-protocol NotificationProtocol {
+@objc protocol NotificationProtocol {
     func startRemoteNotificationService()
 }

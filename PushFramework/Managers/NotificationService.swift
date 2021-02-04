@@ -42,7 +42,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
         completionHandler()
     }
     
-    func logContent(of notification : UNNotification) {
+    private func logContent(of notification : UNNotification) {
         print(notification.request.content.userInfo)
     }
     

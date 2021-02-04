@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4631B31B25CC36B4006F6B6E /* ApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B31A25CC36B4006F6B6E /* ApplicationService.swift */; };
+		4631B31F25CC36C3006F6B6E /* ApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */; };
 		46C72ACE25BEC192000652E1 /* PushFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C72AC425BEC192000652E1 /* PushFramework.framework */; };
 		46C72AD325BEC192000652E1 /* PushFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72AD225BEC192000652E1 /* PushFrameworkTests.swift */; };
 		46C72AD525BEC192000652E1 /* PushFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C72AC725BEC192000652E1 /* PushFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		0D8560EABA1AF7E0ABA6E972 /* Pods_PushFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4631B31A25CC36B4006F6B6E /* ApplicationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationService.swift; sourceTree = "<group>"; };
+		4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationProtocol.swift; sourceTree = "<group>"; };
 		46B94FB00B26EF7D7495DF55 /* Pods-PushFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushFramework.release.xcconfig"; path = "Target Support Files/Pods-PushFramework/Pods-PushFramework.release.xcconfig"; sourceTree = "<group>"; };
 		46C72AC425BEC192000652E1 /* PushFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PushFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46C72AC725BEC192000652E1 /* PushFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushFramework.h; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 		46C72AE725BEC33C000652E1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */,
 				46C72AE825BEC372000652E1 /* NotificationProtocol.swift */,
 				46C72B0025BEDC6A000652E1 /* DeviceTokenProtocol.swift */,
 			);
@@ -157,6 +162,7 @@
 		46C72AEF25BEC68F000652E1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4631B31A25CC36B4006F6B6E /* ApplicationService.swift */,
 				46C72AF025BEC6B2000652E1 /* NotificationService.swift */,
 				46C72B0425BEF3FC000652E1 /* DeviceTokenManager.swift */,
 			);
@@ -349,7 +355,9 @@
 			files = (
 				46C72AE225BEC264000652E1 /* PushEngageService.swift in Sources */,
 				46C72AE925BEC372000652E1 /* NotificationProtocol.swift in Sources */,
+				4631B31F25CC36C3006F6B6E /* ApplicationProtocol.swift in Sources */,
 				46C72AF125BEC6B2000652E1 /* NotificationService.swift in Sources */,
+				4631B31B25CC36B4006F6B6E /* ApplicationService.swift in Sources */,
 				46C72B0A25BEF526000652E1 /* extension.swift in Sources */,
 				46C72B0525BEF3FC000652E1 /* DeviceTokenManager.swift in Sources */,
 				46C72B0125BEDC6A000652E1 /* DeviceTokenProtocol.swift in Sources */,
