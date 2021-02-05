@@ -7,6 +7,7 @@
 
 import Foundation
 import  UserNotifications
+import UIKit
 
 enum PermissonStatus {
     case granted
@@ -14,6 +15,7 @@ enum PermissonStatus {
     case notYetRequested
 }
 
-@objc protocol NotificationProtocol {
-    func startRemoteNotificationService()
+protocol NotificationProtocol {
+    func startRemoteNotificationService(for application : UIApplication)
+    func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest, withMutableNotificationContentHandler: @escaping (Result<UNMutableNotificationContent, PEError>) -> Void)
 }

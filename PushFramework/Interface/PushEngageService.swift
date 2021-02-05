@@ -20,7 +20,7 @@ import SwiftKeychainWrapper
     private let notificationService : NotificationProtocol
     private let deviceTokenManager : DeviceTokenProtocol
     private let applicationManager : ApplicationProtocol
-    
+    private var application : UIApplication?
     //MARK: -private initialization method
     
     private override init() {
@@ -29,13 +29,45 @@ import SwiftKeychainWrapper
         self.applicationManager = ApplicationService()
     }
     
+    @objc public var contentHandler : ((UNMutableNotificationContent) -> Void)?
+    
     //MARK: - public methods
     
-    @objc public func setDelegate(for application : UIApplication) {
+    @objc public func getAppId() -> String {
+        return ""
+    }
+    
+    @objc public func setAppId(appId : String) {
+        
+    }
+    
+    @objc public func setDelegate() {
+        guard let application = application else {
+            return
+        }
         applicationManager.setDelegate(for: application)
     }
     
     @objc public func startNotificationServices() {
-        notificationService.startRemoteNotificationService()
+        guard let application = application else {
+            return
+        }
+        notificationService.startRemoteNotificationService(for: application)
+    }
+    
+    @objc public func getApplication(for application : UIApplication) {
+        self.application = application
+    }
+    
+    @objc public func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest) {
+       
+        notificationService.didReceiveNotificationExtensionRequest(request) { [weak self] result  in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let content):
+                    self?.contentHandler?(content)
+                }
+        }
     }
 }

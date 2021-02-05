@@ -7,6 +7,7 @@
 
 import UserNotifications
 import UIKit
+import MobileCoreServices
 
 
 class NotificationService: NSObject, UNUserNotificationCenterDelegate {
@@ -15,9 +16,6 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
     private var notification = UNUserNotificationCenter.current()
     private var notificationPermission : PermissonStatus = .notYetRequested
-    private var remoteNotificationRegisterStatus : Bool {
-        return UIApplication.shared.isRegisteredForRemoteNotifications
-    }
     
     private var options : UNAuthorizationOptions = [.alert , .sound , .badge]
     
@@ -32,7 +30,7 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         logContent(of: notification)
-        completionHandler([.banner , .sound , .badge])
+        completionHandler([.sound , .badge])
     }
     
     //BackGround
@@ -50,13 +48,37 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
 // MARK: - Extension
 extension NotificationService : NotificationProtocol {
     
-    private func requestPermission() {
+    func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest, withMutableNotificationContentHandler: @escaping (Result<UNMutableNotificationContent, PEError>) -> Void) {
+        guard let updatedContent = (request.content.mutableCopy() as?  UNMutableNotificationContent) else {
+            withMutableNotificationContentHandler(.failure(.contentNotFound))
+            return
+        }
+        if let attachmentString = updatedContent.userInfo["attachment-url"] as? String , let attachmentUrl = URL(string: attachmentString){
+            let session = URLSession(configuration: URLSessionConfiguration.default)
+            let downloadTask = session.downloadTask(with: attachmentUrl) { (url,_,error) in
+                if let error = error {
+                    print(error.localizedDescription )
+                } else if let urlName = url {
+                    do {
+                        let attachment = try UNNotificationAttachment(identifier: attachmentString, url: urlName, options: [UNNotificationAttachmentOptionsTypeHintKey : kUTTypePNG])
+                        updatedContent.attachments = [attachment]
+                        withMutableNotificationContentHandler(.success(updatedContent))
+                    } catch {
+                        withMutableNotificationContentHandler(.failure(.downloadAttachmentfailed))
+                    }
+                }
+            }
+            downloadTask.resume()
+        }
+    }
+    
+    private func requestPermission(for application : UIApplication) {
         notification.requestAuthorization(options: [.alert,.sound,.badge]) {  (grant, error) in
             if let error = error {
                 print(error)
             } else {
                 DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
+                    application.registerForRemoteNotifications()
                 }
             }
         }
@@ -77,14 +99,14 @@ extension NotificationService : NotificationProtocol {
         }
     }
     
-    func startRemoteNotificationService() {
+    func startRemoteNotificationService(for application : UIApplication) {
         checkPermissionStatus()
         DispatchQueue.main.async { [weak self] in
             switch self?.notificationPermission {
             case .notYetRequested :
-                self?.requestPermission()
+                self?.requestPermission(for: application)
             case .denied:
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, completionHandler: nil)
+                print("redirect")
             case .granted:
                 print("Authoried")
             default:
@@ -92,5 +114,6 @@ extension NotificationService : NotificationProtocol {
             }
         }
     }
+    
 }
 

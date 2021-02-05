@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.license =  "MIT"
   spec.author             = { "Abhishek Kumar" => "abkumar@awesomemotive.com" }
   spec.platform = :ios
-  spec.ios.deployment_target  = '14.0'
+  spec.ios.deployment_target  = '13.0'
   spec.requires_arc = true
   spec.source = { :git => "https://github.com/abhishek1631/AppPushFramework.git",
                   :tag => "#{spec.version}"
