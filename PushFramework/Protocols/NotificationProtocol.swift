@@ -18,4 +18,5 @@ enum PermissonStatus {
 protocol NotificationProtocol {
     func startRemoteNotificationService(for application : UIApplication)
     func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest, withMutableNotificationContentHandler: @escaping (Result<UNMutableNotificationContent, PEError>) -> Void)
+    var delegate : UserInfoPassingDelegate? { get set }
 }

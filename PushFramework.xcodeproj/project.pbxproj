@@ -10,6 +10,8 @@
 		4631B31B25CC36B4006F6B6E /* ApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B31A25CC36B4006F6B6E /* ApplicationService.swift */; };
 		4631B31F25CC36C3006F6B6E /* ApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */; };
 		4631B37125CD2513006F6B6E /* PEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B37025CD2513006F6B6E /* PEError.swift */; };
+		464FAC7225D290010000A5BE /* DeepLinkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAC7125D290010000A5BE /* DeepLinkingService.swift */; };
+		464FAC7725D290610000A5BE /* DeepLinkingTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAC7625D290610000A5BE /* DeepLinkingTypes.swift */; };
 		46C72ACE25BEC192000652E1 /* PushFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C72AC425BEC192000652E1 /* PushFramework.framework */; };
 		46C72AD325BEC192000652E1 /* PushFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72AD225BEC192000652E1 /* PushFrameworkTests.swift */; };
 		46C72AD525BEC192000652E1 /* PushFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C72AC725BEC192000652E1 /* PushFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,6 +43,8 @@
 		4631B31A25CC36B4006F6B6E /* ApplicationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationService.swift; sourceTree = "<group>"; };
 		4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationProtocol.swift; sourceTree = "<group>"; };
 		4631B37025CD2513006F6B6E /* PEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PEError.swift; path = PushFramework/PEError.swift; sourceTree = SOURCE_ROOT; };
+		464FAC7125D290010000A5BE /* DeepLinkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkingService.swift; sourceTree = "<group>"; };
+		464FAC7625D290610000A5BE /* DeepLinkingTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkingTypes.swift; sourceTree = "<group>"; };
 		46B94FB00B26EF7D7495DF55 /* Pods-PushFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushFramework.release.xcconfig"; path = "Target Support Files/Pods-PushFramework/Pods-PushFramework.release.xcconfig"; sourceTree = "<group>"; };
 		46C72AC425BEC192000652E1 /* PushFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PushFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46C72AC725BEC192000652E1 /* PushFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushFramework.h; sourceTree = "<group>"; };
@@ -109,6 +113,14 @@
 			path = PEError;
 			sourceTree = "<group>";
 		};
+		464FAC7525D290430000A5BE /* HelperTypes */ = {
+			isa = PBXGroup;
+			children = (
+				464FAC7625D290610000A5BE /* DeepLinkingTypes.swift */,
+			);
+			path = HelperTypes;
+			sourceTree = "<group>";
+		};
 		46C72ABA25BEC192000652E1 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +144,7 @@
 		46C72AC625BEC192000652E1 /* PushFramework */ = {
 			isa = PBXGroup;
 			children = (
+				464FAC7525D290430000A5BE /* HelperTypes */,
 				4631B36F25CD24F6006F6B6E /* PEError */,
 				46C72B0825BEF4E4000652E1 /* extension */,
 				46C72AEF25BEC68F000652E1 /* Managers */,
@@ -176,6 +189,7 @@
 				4631B31A25CC36B4006F6B6E /* ApplicationService.swift */,
 				46C72AF025BEC6B2000652E1 /* NotificationService.swift */,
 				46C72B0425BEF3FC000652E1 /* DeviceTokenManager.swift */,
+				464FAC7125D290010000A5BE /* DeepLinkingService.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -364,10 +378,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464FAC7725D290610000A5BE /* DeepLinkingTypes.swift in Sources */,
 				46C72AE225BEC264000652E1 /* PushEngageService.swift in Sources */,
 				46C72AE925BEC372000652E1 /* NotificationProtocol.swift in Sources */,
 				4631B31F25CC36C3006F6B6E /* ApplicationProtocol.swift in Sources */,
 				46C72AF125BEC6B2000652E1 /* NotificationService.swift in Sources */,
+				464FAC7225D290010000A5BE /* DeepLinkingService.swift in Sources */,
 				4631B31B25CC36B4006F6B6E /* ApplicationService.swift in Sources */,
 				46C72B0A25BEF526000652E1 /* extension.swift in Sources */,
 				46C72B0525BEF3FC000652E1 /* DeviceTokenManager.swift in Sources */,
@@ -533,7 +549,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PushFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,7 +577,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PushFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

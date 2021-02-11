@@ -8,7 +8,10 @@
 import Foundation
 import SwiftKeychainWrapper
 
-@objc public class PushEngageService : NSObject {
+
+
+@objcMembers
+@objc public final class PushEngageService : NSObject {
     
     // MARK: - public static variable
     
@@ -17,7 +20,7 @@ import SwiftKeychainWrapper
     
     //MARK: - private variable
     
-    private let notificationService : NotificationProtocol
+    private var notificationService : NotificationProtocol
     private let deviceTokenManager : DeviceTokenProtocol
     private let applicationManager : ApplicationProtocol
     private var application : UIApplication?
@@ -27,9 +30,12 @@ import SwiftKeychainWrapper
         self.notificationService = NotificationService()
         self.deviceTokenManager = DeviceTokenManager()
         self.applicationManager = ApplicationService()
+        super.init()
+        self.notificationService.delegate = self
     }
     
     @objc public var contentHandler : ((UNMutableNotificationContent) -> Void)?
+    @objc public var userInfoHandler : (([AnyHashable : Any]) -> Void)?
     
     //MARK: - public methods
     
@@ -69,5 +75,11 @@ import SwiftKeychainWrapper
                     self?.contentHandler?(content)
                 }
         }
+    }
+}
+
+extension PushEngageService : UserInfoPassingDelegate {
+    func get(userInfo: [AnyHashable : Any]) {
+        userInfoHandler?(userInfo)
     }
 }

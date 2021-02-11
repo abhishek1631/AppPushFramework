@@ -9,6 +9,10 @@ import UserNotifications
 import UIKit
 import MobileCoreServices
 
+protocol UserInfoPassingDelegate : class {
+    func get(userInfo : [AnyHashable : Any])
+}
+
 
 class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
@@ -18,6 +22,9 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     private var notificationPermission : PermissonStatus = .notYetRequested
     
     private var options : UNAuthorizationOptions = [.alert , .sound , .badge]
+    
+    weak var delegate : UserInfoPassingDelegate?
+    
     
     // MARK: - initialization
     
@@ -30,20 +37,21 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         logContent(of: notification)
-        completionHandler([.sound , .badge])
+        completionHandler([.alert, .sound , .badge])
     }
     
     //BackGround
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         logContent(of: response.notification)
+        delegate?.get(userInfo: response.notification.request.content.userInfo )
         completionHandler()
     }
     
-    private func logContent(of notification : UNNotification) {
-        print(notification.request.content.userInfo)
-    }
     
+    private func logContent(of notification : UNNotification) {
+        print("user info data:- ",notification.request.content.userInfo)
+    }
 }
 // MARK: - Extension
 extension NotificationService : NotificationProtocol {
