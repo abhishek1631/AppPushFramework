@@ -19,19 +19,14 @@ import SwiftKeychainWrapper
     
     
     //MARK: - private variable
-    
-    private var notificationService : NotificationProtocol
-    private let deviceTokenManager : DeviceTokenProtocol
-    private let applicationManager : ApplicationProtocol
     private var application : UIApplication?
+    private var dependencyProtocol : DependencyContainerProtocol
     //MARK: -private initialization method
     
     private override init() {
-        self.notificationService = NotificationService()
-        self.deviceTokenManager = DeviceTokenManager()
-        self.applicationManager = ApplicationService()
+        dependencyProtocol = DependencyManger()
         super.init()
-        self.notificationService.delegate = self
+        self.dependencyProtocol.notificationProvider.delegate = self
     }
     
     @objc public var contentHandler : ((UNMutableNotificationContent) -> Void)?
@@ -51,14 +46,14 @@ import SwiftKeychainWrapper
         guard let application = application else {
             return
         }
-        applicationManager.setDelegate(for: application)
+        dependencyProtocol.applicationProvider.setDelegate(for: application)
     }
     
     @objc public func startNotificationServices() {
         guard let application = application else {
             return
         }
-        notificationService.startRemoteNotificationService(for: application)
+        dependencyProtocol.notificationProvider.startRemoteNotificationService(for: application)
     }
     
     @objc public func getApplication(for application : UIApplication) {
@@ -67,14 +62,18 @@ import SwiftKeychainWrapper
     
     @objc public func didReceiveNotificationExtensionRequest(_ request: UNNotificationRequest) {
        
-        notificationService.didReceiveNotificationExtensionRequest(request) { [weak self] result  in
+        dependencyProtocol.notificationProvider.didReceiveNotificationExtensionRequest(request) { [weak self] result  in
                 switch result {
                 case .failure(let error):
-                    print(error)
+                    assertionFailure(error.value)
                 case .success(let content):
                     self?.contentHandler?(content)
                 }
         }
+    }
+    
+    @objc public func rediectController() {
+        
     }
 }
 

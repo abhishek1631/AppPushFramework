@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46089D3025D6989C00DC50A4 /* DependencyContainerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46089D2F25D6989C00DC50A4 /* DependencyContainerProtocol.swift */; };
+		46089D3C25D69A4C00DC50A4 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46089D3B25D69A4C00DC50A4 /* DependencyManager.swift */; };
 		4631B31B25CC36B4006F6B6E /* ApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B31A25CC36B4006F6B6E /* ApplicationService.swift */; };
 		4631B31F25CC36C3006F6B6E /* ApplicationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */; };
 		4631B37125CD2513006F6B6E /* PEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631B37025CD2513006F6B6E /* PEError.swift */; };
-		464FAC7225D290010000A5BE /* DeepLinkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAC7125D290010000A5BE /* DeepLinkingService.swift */; };
 		464FAC7725D290610000A5BE /* DeepLinkingTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464FAC7625D290610000A5BE /* DeepLinkingTypes.swift */; };
 		46C72ACE25BEC192000652E1 /* PushFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C72AC425BEC192000652E1 /* PushFramework.framework */; };
 		46C72AD325BEC192000652E1 /* PushFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72AD225BEC192000652E1 /* PushFrameworkTests.swift */; };
@@ -21,8 +22,6 @@
 		46C72AEA25BEC372000652E1 /* NotificationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72AE825BEC372000652E1 /* NotificationProtocol.swift */; };
 		46C72AF125BEC6B2000652E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72AF025BEC6B2000652E1 /* NotificationService.swift */; };
 		46C72AF225BEC6B2000652E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72AF025BEC6B2000652E1 /* NotificationService.swift */; };
-		46C72B0125BEDC6A000652E1 /* DeviceTokenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72B0025BEDC6A000652E1 /* DeviceTokenProtocol.swift */; };
-		46C72B0525BEF3FC000652E1 /* DeviceTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72B0425BEF3FC000652E1 /* DeviceTokenManager.swift */; };
 		46C72B0A25BEF526000652E1 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C72B0925BEF526000652E1 /* extension.swift */; };
 		684265E61F1B4BD880843752 /* Pods_PushFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D8560EABA1AF7E0ABA6E972 /* Pods_PushFramework.framework */; };
 		DD238C10C9E4F35D2C82E150 /* Pods_PushFramework_PushFrameworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7534D0A90728DBA54F704764 /* Pods_PushFramework_PushFrameworkTests.framework */; };
@@ -40,10 +39,11 @@
 
 /* Begin PBXFileReference section */
 		0D8560EABA1AF7E0ABA6E972 /* Pods_PushFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46089D2F25D6989C00DC50A4 /* DependencyContainerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainerProtocol.swift; sourceTree = "<group>"; };
+		46089D3B25D69A4C00DC50A4 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		4631B31A25CC36B4006F6B6E /* ApplicationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationService.swift; sourceTree = "<group>"; };
 		4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationProtocol.swift; sourceTree = "<group>"; };
 		4631B37025CD2513006F6B6E /* PEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PEError.swift; path = PushFramework/PEError.swift; sourceTree = SOURCE_ROOT; };
-		464FAC7125D290010000A5BE /* DeepLinkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkingService.swift; sourceTree = "<group>"; };
 		464FAC7625D290610000A5BE /* DeepLinkingTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkingTypes.swift; sourceTree = "<group>"; };
 		46B94FB00B26EF7D7495DF55 /* Pods-PushFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushFramework.release.xcconfig"; path = "Target Support Files/Pods-PushFramework/Pods-PushFramework.release.xcconfig"; sourceTree = "<group>"; };
 		46C72AC425BEC192000652E1 /* PushFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PushFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,8 +55,6 @@
 		46C72AE125BEC264000652E1 /* PushEngageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushEngageService.swift; sourceTree = "<group>"; };
 		46C72AE825BEC372000652E1 /* NotificationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationProtocol.swift; sourceTree = "<group>"; };
 		46C72AF025BEC6B2000652E1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		46C72B0025BEDC6A000652E1 /* DeviceTokenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTokenProtocol.swift; sourceTree = "<group>"; };
-		46C72B0425BEF3FC000652E1 /* DeviceTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTokenManager.swift; sourceTree = "<group>"; };
 		46C72B0925BEF526000652E1 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		7534D0A90728DBA54F704764 /* Pods_PushFramework_PushFrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushFramework_PushFrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7CB090B6DDF1BB7DE7EBDF1 /* Pods-PushFramework-PushFrameworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushFramework-PushFrameworkTests.release.xcconfig"; path = "Target Support Files/Pods-PushFramework-PushFrameworkTests/Pods-PushFramework-PushFrameworkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,7 +176,7 @@
 			children = (
 				4631B31E25CC36C3006F6B6E /* ApplicationProtocol.swift */,
 				46C72AE825BEC372000652E1 /* NotificationProtocol.swift */,
-				46C72B0025BEDC6A000652E1 /* DeviceTokenProtocol.swift */,
+				46089D2F25D6989C00DC50A4 /* DependencyContainerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -188,8 +186,7 @@
 			children = (
 				4631B31A25CC36B4006F6B6E /* ApplicationService.swift */,
 				46C72AF025BEC6B2000652E1 /* NotificationService.swift */,
-				46C72B0425BEF3FC000652E1 /* DeviceTokenManager.swift */,
-				464FAC7125D290010000A5BE /* DeepLinkingService.swift */,
+				46089D3B25D69A4C00DC50A4 /* DependencyManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -380,15 +377,14 @@
 			files = (
 				464FAC7725D290610000A5BE /* DeepLinkingTypes.swift in Sources */,
 				46C72AE225BEC264000652E1 /* PushEngageService.swift in Sources */,
+				46089D3C25D69A4C00DC50A4 /* DependencyManager.swift in Sources */,
 				46C72AE925BEC372000652E1 /* NotificationProtocol.swift in Sources */,
 				4631B31F25CC36C3006F6B6E /* ApplicationProtocol.swift in Sources */,
+				46089D3025D6989C00DC50A4 /* DependencyContainerProtocol.swift in Sources */,
 				46C72AF125BEC6B2000652E1 /* NotificationService.swift in Sources */,
-				464FAC7225D290010000A5BE /* DeepLinkingService.swift in Sources */,
 				4631B31B25CC36B4006F6B6E /* ApplicationService.swift in Sources */,
 				46C72B0A25BEF526000652E1 /* extension.swift in Sources */,
-				46C72B0525BEF3FC000652E1 /* DeviceTokenManager.swift in Sources */,
 				4631B37125CD2513006F6B6E /* PEError.swift in Sources */,
-				46C72B0125BEDC6A000652E1 /* DeviceTokenProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +537,7 @@
 			baseConfigurationReference = F20D43304A6068FFF63E7750 /* Pods-PushFramework.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 38PU74KZ48;
@@ -569,6 +566,7 @@
 			baseConfigurationReference = 46B94FB00B26EF7D7495DF55 /* Pods-PushFramework.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 38PU74KZ48;
