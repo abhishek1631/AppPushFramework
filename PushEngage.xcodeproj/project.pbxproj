@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		463E7BC8261CD6ED00F932CD /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463E7BC7261CD6ED00F932CD /* Trigger.swift */; };
 		46C10C6E261AE2FA009B920F /* PushEngage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C10C64261AE2FA009B920F /* PushEngage.framework */; };
 		46C10C73261AE2FA009B920F /* PushEngageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C10C72261AE2FA009B920F /* PushEngageTests.swift */; };
 		46C10C75261AE2FA009B920F /* PushEngage.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C10C67261AE2FA009B920F /* PushEngage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -84,6 +85,7 @@
 		31FB0B4BD2D2AC95FDC1156A /* Pods-PushEngage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushEngage.debug.xcconfig"; path = "Target Support Files/Pods-PushEngage/Pods-PushEngage.debug.xcconfig"; sourceTree = "<group>"; };
 		38CB59306F8967DD30D9FAB5 /* Pods_PushEngage_PushEngageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushEngage_PushEngageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		406E84B17FDDAC2F3D0592B9 /* Pods-PushEngage-PushEngageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushEngage-PushEngageTests.release.xcconfig"; path = "Target Support Files/Pods-PushEngage-PushEngageTests/Pods-PushEngage-PushEngageTests.release.xcconfig"; sourceTree = "<group>"; };
+		463E7BC7261CD6ED00F932CD /* Trigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
 		46C10C64261AE2FA009B920F /* PushEngage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PushEngage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46C10C67261AE2FA009B920F /* PushEngage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushEngage.h; sourceTree = "<group>"; };
 		46C10C68261AE2FA009B920F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		463E7BC6261CD6DA00F932CD /* Trigger */ = {
+			isa = PBXGroup;
+			children = (
+				463E7BC7261CD6ED00F932CD /* Trigger.swift */,
+			);
+			path = Trigger;
+			sourceTree = "<group>";
+		};
 		46C10C5A261AE2FA009B920F = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		46C10C66261AE2FA009B920F /* PushEngage */ = {
 			isa = PBXGroup;
 			children = (
+				463E7BC6261CD6DA00F932CD /* Trigger */,
 				46C10CB9261AE63B009B920F /* Constants */,
 				46C10CA9261AE63B009B920F /* DependencyInjectionSetup */,
 				46C10C84261AE63B009B920F /* Extensions */,
@@ -674,6 +685,7 @@
 				46C10D04261AE63C009B920F /* Listener.swift in Sources */,
 				46C10CE5261AE63C009B920F /* NotificationProtocol.swift in Sources */,
 				46C10CE2261AE63C009B920F /* PEOperations.swift in Sources */,
+				463E7BC8261CD6ED00F932CD /* Trigger.swift in Sources */,
 				46C10CD7261AE63C009B920F /* NotificationLifeCycleManager.swift in Sources */,
 				46C10CEF261AE63C009B920F /* DependencyProtocol.swift in Sources */,
 				46C10CDB261AE63C009B920F /* ApplicationService.swift in Sources */,
