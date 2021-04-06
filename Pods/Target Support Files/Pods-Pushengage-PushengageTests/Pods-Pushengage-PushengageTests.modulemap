@@ -1,6 +1,0 @@
-framework module Pods_Pushengage_PushengageTests {
-  umbrella header "Pods-Pushengage-PushengageTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
