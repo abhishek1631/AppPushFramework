@@ -1,0 +1,6 @@
+framework module Pods_AbhishekFramework_AbhishekFrameworkTests {
+  umbrella header "Pods-AbhishekFramework-AbhishekFrameworkTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
